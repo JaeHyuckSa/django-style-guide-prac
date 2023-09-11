@@ -38,6 +38,7 @@
 ### Apply pre-commit
 ```bash
 poetry run pre-commit install
+git commit
 ```
 ### Apply commit message template
 ```bash
