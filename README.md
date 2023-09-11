@@ -2,27 +2,43 @@
 ### [django-style-guide Docs](https://github.com/HackSoftware/Django-Styleguide)
 ### [django-style-guide Code](https://github.com/HackSoftware/Django-Styleguide-Example)
 
+<!-- toc -->
+- [Custom Django-Style-Guide](#custom-django-style-guide)
+    - [django-style-guide Docs](#django-style-guide-docs)
+    - [django-style-guide Code](#django-style-guide-code)
+  - [Tech Stack](#tech-stack)
+  - [Git branch Strategy](#git-branch-strategy)
+    - [branch name](#branch-name)
+  - [Git commit message](#git-commit-message)
+  - [Aplication Start](#aplication-start)
+    - [Step1: Create virtual environment or Install Packages](#step1-create-virtual-environment-or-install-packages)
+    - [Step2: Run Server](#step2-run-server)
+
+<!-- tocstop -->
+
 ## Tech Stack
-- Python 3.11
-- Django 4.2.5
-- Django Rest Framework 3.14.0
-- Git
-- Github Actions
+- [Python 3.11](https://www.python.org/)
+- [Django 4.2.5](https://docs.djangoproject.com/ko/4.2/intro/)
+- [Django Rest Framework 3.14.0](https://www.django-rest-framework.org/)
+- [Git](https://git-scm.com/docs)
+- [Github Actions](https://docs.github.com/ko/actions)
 
 ## Git branch Strategy
 [git flow Refrence](https://techblog.woowahan.com/2553/)
 ### branch name
-- main : Branches that can be released as products
-- develop : The branch that develops the next release
+- main : Branch that can be released as products
+- develop : Branch that develops the next release
 - feature : Branch where features are developed
 - release : Branch preparing for this release version
-- hotfix : Branch that fixes bugs encountered in the released version ## Git commit Strategy
+- hotfix : Branch that fixes bugs encountered in the released version
+
+## Git commit message 
 ```bash
 git config --local commit.template .gitmessage.txt 
 git add .
 git commit
 ```
-## Start
+## Aplication Start
 
 ### Step1: Create virtual environment or Install Packages
 ```bash
