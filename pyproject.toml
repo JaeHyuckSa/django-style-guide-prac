@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 djangorestframework = "^3.14.0"
 django = "^4.2.5"
+pre-commit = "^3.4.0"
 
 
 [build-system]

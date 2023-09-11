@@ -7,9 +7,11 @@
     - [django-style-guide Docs](#django-style-guide-docs)
     - [django-style-guide Code](#django-style-guide-code)
   - [Tech Stack](#tech-stack)
-  - [Git branch Strategy](#git-branch-strategy)
+  - [Git branch Strategy | Git Flow Refrence](#git-branch-strategy--git-flow-refrence)
     - [branch name](#branch-name)
-  - [Git commit message](#git-commit-message)
+  - [Git commit](#git-commit)
+    - [Apply pre-commit](#apply-pre-commit)
+    - [Apply commit message template](#apply-commit-message-template)
   - [Aplication Start](#aplication-start)
     - [Step1: Create virtual environment or Install Packages](#step1-create-virtual-environment-or-install-packages)
     - [Step2: Run Server](#step2-run-server)
@@ -23,8 +25,7 @@
 - [Git](https://git-scm.com/docs)
 - [Github Actions](https://docs.github.com/ko/actions)
 
-## Git branch Strategy
-[git flow Refrence](https://techblog.woowahan.com/2553/)
+## Git branch Strategy | [Git Flow Refrence](https://techblog.woowahan.com/2553/)
 ### branch name
 - main : Branch that can be released as products
 - develop : Branch that develops the next release
@@ -32,9 +33,15 @@
 - release : Branch preparing for this release version
 - hotfix : Branch that fixes bugs encountered in the released version
 
-## Git commit message 
+## Git commit
+
+### Apply pre-commit
 ```bash
-git config --local commit.template .gitmessage.txt 
+poetry run pre-commit install
+```
+### Apply commit message template
+```bash
+git config --local commit.template .gitmessage.txt
 git add .
 git commit
 ```
@@ -42,7 +49,7 @@ git commit
 
 ### Step1: Create virtual environment or Install Packages
 ```bash
-python3.11 -m venv venv 
+python3.11 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt # poetry install
 poetry install
