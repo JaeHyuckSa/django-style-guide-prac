@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ "develop", "main"]
+
+  pull_request:
+    branches: [ "develop", "main" ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.11.5]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python -
+
+    - name: Install Dependencies
+      run: |
+        poetry install --no-root
+
+    - name: Run Tests
+      env:
+        SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+        SERVER_ENV: ${{ secrets.SERVER_ENV }}
+        IS_LOCAL_DATABASE: ${{ secrets.IS_LOCAL_DATABASE }}
+      run: |
+        poetry run python manage.py test
