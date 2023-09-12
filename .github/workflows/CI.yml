@@ -35,7 +35,8 @@ jobs:
 
     - name: Run black
       uses: psf/black@stable
-      args: ['-l', '150', '-t', 'py311']
+      with:
+        args: ['-l', '150', '-t', 'py311']
 
     - name: Run flake8
       run: flake8
