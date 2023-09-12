@@ -7,10 +7,31 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-djangorestframework = "^3.14.0"
 django = "^4.2.5"
-pre-commit = "^3.4.0"
+django-environ = "^0.11.2"
+djangorestframework = "^3.14.0"
+django-cors-headers = "^4.2.0"
+gunicorn = "^21.2.0"
+requests = "^2.31.0"
 
+[tool.poetry.group.local.dependencies]
+pytest = "^7.4.2"
+pytest-django = "^4.5.2"
+
+factory-boy = "^3.3.0"
+faker = "^19.6.1"
+
+django-debug-toolbar = "^4.2.0"
+
+mypy = "^1.5.1"
+
+django-stubs = "^4.2.4"
+djangorestframework-stubs = "^3.14.2"
+
+flake8 = "^6.1.0"
+isort = "^5.12.0"
+black = "^23.9.1"
+pre-commit = "^3.4.0"
 
 [build-system]
 requires = ["poetry-core"]
