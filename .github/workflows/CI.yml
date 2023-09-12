@@ -39,7 +39,7 @@ jobs:
 
     - name: Run flake8
       run: |
-        poetry run flake8
+        poetry run flake8 --in-place --remove-unused-variables --remove-all-unused-imports .
 
     - name: Type check
       run: |
