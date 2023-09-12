@@ -34,9 +34,8 @@ jobs:
       uses: isort/isort-action@master
 
     - name: Run black
-      uses: psf/black@stable
-      with:
-        args: ['-l', '150', '-t', 'py311']
+      run: |
+        poetry run black -l 150 -t py311 .
 
     - name: Run flake8
       run: flake8
