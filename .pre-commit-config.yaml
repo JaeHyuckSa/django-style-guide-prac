@@ -9,7 +9,7 @@ repos:
     rev: 23.7.0
     hooks:
     - id: black
-      args: ['-l', '150', '-t', 'py311', --check]
+      args: ['-l', '150', '-t', 'py311']
   - repo: https://github.com/myint/autoflake
     rev: v1.4
     hooks:
@@ -22,7 +22,7 @@ repos:
     rev: 5.12.0
     hooks:
       - id: isort
-        args: ['--line-length', '150', --check]
+        args: ['--line-length', '150']
 
 default_language_version:
   python: python3.11

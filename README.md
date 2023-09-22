@@ -27,7 +27,7 @@
 
 ## Git branch Strategy | [Git Flow Refrence](https://techblog.woowahan.com/2553/)
 ### branch name
-- main : Branch that can be released as products
+- main : Branch that can be released as product
 - develop : Branch that develops the next release
 - feature : Branch where features are developed
 - release : Branch preparing for this release version

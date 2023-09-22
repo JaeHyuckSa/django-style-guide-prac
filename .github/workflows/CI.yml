@@ -10,41 +10,26 @@ on:
 jobs:
   django-test:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.11.5]
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
+      - uses: actions/checkout@v3
 
-    - name: Install Poetry
-      run: |
-        curl -sSL https://install.python-poetry.org | python -
+      - name: Build docker
+        run: docker compose -f local.docker-compose.yml build
 
-    - name: Install Dependencies
-      run: |
-        poetry install
+      - name: Migration test database
+        run: docker compose -f local.docker-compose.yml run django poetry run python manage.py migrate
 
-    - name: Run isort
-      uses: isort/isort-action@master
+      - name: Run isort
+        run: docker compose -f local.docker-compose.yml run django poetry run isort django-style-guide/ --check
 
-    - name: Run black
-      run: |
-        poetry run black -l 150 -t py311 .
+      - name: Run black
+        run: docker compose -f local.docker-compose.yml run django poetry run black django-style-guide/ --check
 
-    - name: Run flake8
-      run: |
-        poetry run flake8
+      - name: Run flake8
+        run: docker compose -f local.docker-compose.yml run django poetry run flake8
 
-    - name: Type check
-      run: |
-        poetry run mypy --config mypy.ini .
+      - name: Run mypy
+        run: docker compose -f local.docker-compose.yml run django poetry run mypy --config mypy.ini euss_ya_apps/
 
-    - name: Run tests
-      run: |
-        poetry run pytest
+      - name: Run tests
+        run: docker compose -f local.docker-compose.yml run django poetry run py.test

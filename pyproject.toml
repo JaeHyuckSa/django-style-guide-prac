@@ -13,6 +13,8 @@ djangorestframework = "^3.14.0"
 django-cors-headers = "^4.2.0"
 gunicorn = "^21.2.0"
 requests = "^2.31.0"
+pymysql = "^1.1.0"
+cryptography = "^41.0.4"
 
 [tool.poetry.group.local.dependencies]
 pytest = "^7.4.2"
@@ -32,6 +34,16 @@ flake8 = "^6.1.0"
 isort = "^5.12.0"
 black = "^23.9.1"
 pre-commit = "^3.4.0"
+
+[tool.black]
+line-length = 150
+target-version = ['py311']
+force-exclude = 'migrations'
+
+[tool.isort]
+profile = "black"
+filter_files = true
+skip_glob = ["*/migrations/*", "config/*"]
 
 [build-system]
 requires = ["poetry-core"]
